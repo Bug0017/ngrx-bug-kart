@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ngrx-bug-kart';
+  isMobile: boolean;
+
+  constructor(private deviceService: DeviceDetectorService) {
+    this.isMobile = this.deviceService.isMobile();
+  }
 }
