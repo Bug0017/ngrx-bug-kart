@@ -1,9 +1,7 @@
+<section *ngIf="isMobile">mobile view</section>
+
 <section *ngIf="!isMobile">
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
-</section>
-
-<section *ngIf="isMobile">
-  <h3>Mobile view</h3>
 </section>

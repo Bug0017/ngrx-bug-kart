@@ -1,1 +1,9 @@
-
+<nz-carousel [nzEffect]="effect" class="max-h-96" [nzAutoPlay]="true">
+  <div
+    nz-carousel-content
+    class="text-center max-h-96 min-h-96 bg-purple-600 leading-10 text-white overflow-hidden"
+    *ngFor="let image of images"
+  >
+    <img [src]="image" class="w-screen" alt="carouse_item" />
+  </div>
+</nz-carousel>
