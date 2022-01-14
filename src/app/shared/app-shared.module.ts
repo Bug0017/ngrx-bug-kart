@@ -4,9 +4,10 @@ import { AppFooterComponent } from './components/footer/app-footer.component';
 import { NgModule } from '@angular/core';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzInputModule } from 'ng-zorro-antd/input';
 import { AppDealOfTheDayProductCardComponent } from './components/dotd-product-card/app-dotd-product-card.component';
 @NgModule({
-  imports: [RouterModule, NzBadgeModule, NzCardModule],
+  imports: [RouterModule, NzBadgeModule, NzCardModule, NzInputModule],
   declarations: [
     AppHeaderComponent,
     AppFooterComponent,

@@ -4,8 +4,12 @@
     <div class="flex-auto">
       <form>
         <fieldset class="flex">
-          <input type="text" class="search-products-input pr-7" />
-          <img src="assets/images/search-header.svg" alt="" class="-ml-7" />
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="input search text" />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <img src="assets/images/search-header.svg" alt="" />
+          </ng-template>
         </fieldset>
       </form>
     </div>
