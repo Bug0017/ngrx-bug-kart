@@ -1,3 +1,4 @@
+import { AppSharedModule } from './../shared/app-shared.module';
 import { AppHomeDealOfTheDayComponent } from './components/home-deal-of-the-day/app-home-deal-of-the-day.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { AppHomePageComponent } from './components/home-page/app-home-page.compo
     AppHomeRoutingModule,
     NzCarouselModule,
     NzButtonModule,
+    AppSharedModule,
   ],
   declarations: [
     AppHomePageComponent,

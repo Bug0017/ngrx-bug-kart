@@ -3,5 +3,11 @@
     <span class="text-2xl">Deal of the day</span>
     <button nz-button nzType="primary" routerLink="/">View All</button>
   </div>
-  <div></div>
+  <div class="flex flex-wrap items-center gap-10 py-16">
+    <app-dotd-product-card
+      class="flex"
+      *ngFor="let card of cards"
+      [card]="card"
+    ></app-dotd-product-card>
+  </div>
 </section>
