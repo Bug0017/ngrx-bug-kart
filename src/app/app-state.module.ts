@@ -1,3 +1,4 @@
+import { cartReducer } from './state/cart/cart.reducer';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -8,6 +9,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     StoreModule.forRoot({
       router: routerReducer,
+      cart: cartReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
