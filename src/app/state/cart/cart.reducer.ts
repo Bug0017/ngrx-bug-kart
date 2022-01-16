@@ -1,12 +1,9 @@
-import {
-  originalPrice,
-  getDiscountPrice,
-  removeEmptyFromArray,
-} from './../helpers/cart.helpers';
+import { originalPrice, getDiscountPrice } from './../helpers/cart.helpers';
 import { createReducer, on } from '@ngrx/store';
 import { findItemIndexFromCart } from '../helpers/cart.helpers';
 import * as CartActions from './cart.actions';
 import { Cart } from './cart.interface';
+import { removeEmptyFromArray } from '../helpers';
 
 const cartInitialState: Cart = {
   totalCartItemsCount: 0,
