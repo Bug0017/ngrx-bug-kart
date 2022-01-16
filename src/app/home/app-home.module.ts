@@ -1,3 +1,4 @@
+import { AppHomeProductsComponent } from './components/home-products/app-home-products.component';
 import { AppSharedModule } from './../shared/app-shared.module';
 import { AppHomeDealOfTheDayComponent } from './components/home-deal-of-the-day/app-home-deal-of-the-day.component';
 import { CommonModule } from '@angular/common';
@@ -20,6 +21,7 @@ import { AppHomePageComponent } from './components/home-page/app-home-page.compo
     AppHomePageComponent,
     AppHomeCarouselComponent,
     AppHomeDealOfTheDayComponent,
+    AppHomeProductsComponent,
   ],
   providers: [],
   exports: [],
