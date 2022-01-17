@@ -27,7 +27,7 @@
         <span> More </span>
       </a>
       <a routerLink="['/']" class="flex space-x-2">
-        <nz-badge [nzCount]="9">
+        <nz-badge [nzCount]="count$ | async">
           <img src="assets/images/cart-header.svg" alt="" />
         </nz-badge>
         <span> Cart </span>
