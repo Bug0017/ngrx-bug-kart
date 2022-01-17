@@ -35,7 +35,9 @@ export const cartReducer = createReducer(
         ...state,
         items: removeEmptyFromArray([...items, { ...updatedItem }]),
         totalCartItemsCount: state.totalCartItemsCount + 1,
-        totalCartPrice: state.totalCartPrice + updatedItem.totalPrice,
+        totalCartPrice:
+          state.totalCartPrice +
+          originalPrice(updatedItem.price, updatedItem.discount),
         totalDiscount:
           state.totalDiscount +
           getDiscountPrice(cartItem.price, cartItem.discount),
@@ -52,7 +54,8 @@ export const cartReducer = createReducer(
         },
       ],
       totalCartItemsCount: state.totalCartItemsCount + 1,
-      totalCartPrice: state.totalCartPrice + cartItem.price,
+      totalCartPrice:
+        state.totalCartPrice + originalPrice(cartItem.price, cartItem.discount),
       totalDiscount:
         state.totalDiscount +
         getDiscountPrice(cartItem.price, cartItem.discount),
@@ -60,9 +63,8 @@ export const cartReducer = createReducer(
   }),
   on(CartActions.removeItemToCart, (state, { cartItem }) => {
     const cartIndex = findItemIndexFromCart(state, cartItem.id);
-
+    console.log(cartIndex);
     const totalIsZero = state.totalCartItemsCount - 1;
-
     if (cartIndex > -1) {
       const items = [...state.items];
       const selectedItem = items[cartIndex];
@@ -76,24 +78,27 @@ export const cartReducer = createReducer(
 
       return {
         ...state,
-        items: removeEmptyFromArray([...items, { ...updatedItem }]),
-        totalCartItemsCount: state.totalCartItemsCount - 1,
-        totalCartPrice: state.totalCartPrice + updatedItem.totalPrice,
+        items:
+          totalIsZero <= 0
+            ? []
+            : removeEmptyFromArray([...items, { ...updatedItem }]),
+        totalCartItemsCount:
+          totalIsZero <= 0 ? 0 : state.totalCartItemsCount - 1,
+        totalCartPrice:
+          totalIsZero <= 0
+            ? 0
+            : state.totalCartPrice -
+              originalPrice(updatedItem.price, updatedItem.discount),
         totalDiscount:
-          state.totalDiscount -
-          getDiscountPrice(cartItem.price, cartItem.discount),
+          totalIsZero <= 0
+            ? 0
+            : state.totalDiscount -
+              getDiscountPrice(cartItem.price, cartItem.discount),
       };
     }
-
     return {
       ...state,
-      items: [
-        ...state.items,
-        {
-          ...cartItem,
-          totalPrice: originalPrice(cartItem.price, cartItem.discount),
-        },
-      ],
+      items: [...state.items],
     };
   })
 );
