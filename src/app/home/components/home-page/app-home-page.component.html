@@ -1,5 +1,5 @@
 <section class="min-h-screen">
   <app-home-carousel></app-home-carousel>
-  <app-home-dotd></app-home-dotd>
-  <app-home-products></app-home-products>
+  <app-home-dotd [products]="dealOfTheDayProducts$ | async"></app-home-dotd>
+  <app-home-products [products]="normalProducts$ | async"></app-home-products>
 </section>

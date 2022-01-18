@@ -4,11 +4,15 @@
     </nz-card-meta>
   </nz-card>
   <ng-template #coverTemplate>
-    <img alt="deal of the day product image" [src]="card.image" />
+    <img
+      alt="deal of the day product image"
+      class="h-64"
+      [src]="card.imagePath"
+    />
   </ng-template>
 
   <ng-template #descriptionTemplate>
-    <h3 class="text-red-500">{{ card.offerTitle }}</h3>
+    <h3 class="text-red-500">{{ card.discount }}% offer</h3>
     <h3>{{ card.description }}</h3>
   </ng-template>
 </a>

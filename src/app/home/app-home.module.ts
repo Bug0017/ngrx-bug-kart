@@ -1,3 +1,5 @@
+import { HomeService } from './services/home.service';
+import { HttpClientModule } from '@angular/common/http';
 import { AppHomeProductsComponent } from './components/home-products/app-home-products.component';
 import { AppSharedModule } from './../shared/app-shared.module';
 import { AppHomeDealOfTheDayComponent } from './components/home-deal-of-the-day/app-home-deal-of-the-day.component';
@@ -12,6 +14,7 @@ import { AppHomePageComponent } from './components/home-page/app-home-page.compo
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     AppHomeRoutingModule,
     NzCarouselModule,
     NzButtonModule,
